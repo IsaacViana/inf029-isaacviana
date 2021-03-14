@@ -5,8 +5,8 @@ int main(){
     int operac;
     float a, b;
 
-	printf("Digite a operacao que deseja realizar ou sair:\n"
-	"1-somar\n"
+  printf("Digite a operacao que deseja realizar ou sair:\n"
+  "1-somar\n"
   "2-Subtrair\n"
   "3-Multiplicar\n"
   "4-Dividir\n"
