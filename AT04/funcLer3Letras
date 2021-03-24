@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+char ler3Letras(int i, char *c);
+
+int main(){
+    
+	char c[3];
+
+	printf("Digite a letra:\n");
+
+	ler3Letras(3, c);
+	printf("As letras digitadas pelo usuario foram:\n%c\n%c\n%c\n", c[0], c[1], c[2]);
+} 
+
+char ler3Letras(int i, char *c){
+  scanf("%c\n%c\n%c", &c[0], &c[1], &c[2]);
+}
