@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+
+struct num ler4Numeros(struct num n);
+
+struct num{
+		float n1;
+		float n2;
+		float n3;
+		float n4;
+	}n;
+	
+int main(){   
+
+printf("Digite os valores numericos:\n");
+
+n = ler4Numeros(n);
+
+printf("Valores:%f\n%f\n%f\n%f", n.n1, n.n2, n.n3, n.n4);
+
+}
+
+struct num ler4Numeros(struct num n){
+    
+    scanf("%f", &n.n1);
+    scanf("%f", &n.n2);
+    scanf("%f", &n.n3);
+    scanf("%f", &n.n4);
+    
+    return n;
+}
