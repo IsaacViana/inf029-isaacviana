@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+int ler3Numeros(int i, int *vet);
+
+int main(){
+
+	int  i, vet[3];
+
+	printf("Digite os valores:\n");
+
+	ler3Numeros(3, vet);
+	
+	printf("Valores do vetor:\n%d\n%d\n%d", vet[0], vet[1], vet[2]);
+}
+
+int ler3Numeros(int i, int *vet){
+    
+    	for(i = 0; i < 3; i++){
+		    scanf("%d", &vet[i]);
+    	}
+}
