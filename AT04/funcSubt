@@ -1,0 +1,18 @@
+#include<stdio.h>
+
+int subtrai(int, int, int);
+
+int main(){
+	int a, b, c;
+
+	printf("Digite os valores que deseja na operacao:\n");
+	scanf("%d%d%d", &a, &b, &c);
+
+	printf("O valor eh: %d", subtrai(a, b, c));
+
+}
+
+int subtrai(int a, int b, int c){
+
+	return a - b - c;
+}
