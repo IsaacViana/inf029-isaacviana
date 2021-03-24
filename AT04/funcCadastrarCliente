@@ -1,0 +1,50 @@
+#include<stdio.h>
+
+struct cadastro cadastrarCliente(struct cadastro c);
+
+typedef struct dataNascimento{
+    
+     int dia;
+     int mes;
+     int ano;
+}d; 
+
+typedef struct cadastro{
+        
+     char nome[50];
+     struct dataNascimento d;
+     char cpf[12];
+     char sexo[2];
+    }c;
+
+int main(){
+    
+    struct cadastro c;
+    struct dataNascimento d;
+    
+    c = cadastrarCliente(c);
+    
+    printf("\nDados do cliente:\n");
+    printf("Nome:%s", c.nome);
+    printf("Data de nascimento:%d/%d/%d\n",c.d.dia, c.d.mes, c.d.ano);
+    printf("Cpf:%s\n", c.cpf);
+    printf("Sexo:%s\n", c.sexo);
+    printf("\nCadastro realizado com sucesso.");
+}
+ struct cadastro cadastrarCliente(struct cadastro c){
+    printf("Digite nome:\n");
+    fgets(c.nome, 50, stdin);
+    printf("Digite data de nascimento:\n");
+    printf("Dia:");
+    scanf("%d", &c.d.dia);
+    printf("Mes:");
+    scanf("%d", &c.d.mes);
+    printf("Ano:");
+    scanf("%d", &c.d.ano);
+    printf("Digite cpf:Somente numeros\n");
+    scanf("%s", &c.cpf);
+    printf("Sexo:%s\n", c.sexo);
+    scanf("%s", &c.sexo);
+           
+    return c;
+}
