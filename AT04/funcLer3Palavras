@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+struct palavras ler3Palavras(struct palavras p);
+
+struct palavras{
+    char p1[10];
+    char p2[10];
+    char p3[10];
+}p;
+
+int main(){
+    printf("Digite as palavras:\n");
+    
+    p = ler3Palavras(p);
+    
+    printf("Palavras:\n%s\n%s\n%s", p.p1, p.p2, p.p3);    
+}
+
+struct palavras ler3Palavras(struct palavras p){
+    scanf("%s", &p.p1);
+    scanf("%s", &p.p2);
+    scanf("%s", &p.p3);    
+    return p;
+}
