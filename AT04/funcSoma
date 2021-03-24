@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int soma(int, int);
+
+int main(){
+	int a, b;
+
+	printf("Digite os valores que deseja somar:\n");
+	scanf("%d%d", &a, &b);
+
+	printf("A soma eh: %d", soma(a, b));
+
+}
+int soma(int a, int b){
+
+	return a + b;
+}
