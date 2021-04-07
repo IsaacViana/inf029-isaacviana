@@ -1,0 +1,60 @@
+#include<stdio.h>
+
+#define TAM 2
+
+struct registro{
+  char nome[50];
+  char sexo;
+  char dataNascimento[13];
+  char cpf[12];
+  char matricula[11];
+}aluno, cadAluno[TAM];
+
+int main(){
+    struct a;
+    cadAluno[TAM];
+    char c;
+    int i;
+    
+    printf("Cadastro de alunos:\n\n");
+
+    do{
+          
+        printf("1 - Cadastra alunos:\n");
+        printf("2 - Lista alunos:\n");
+        printf("0 - Sair.\n");
+        c = getchar();
+        setbuf(stdin, NULL);
+        if(c != '1' && c != '2' && (c < '0' || c > '0')){
+            printf("Tente novamente\n");
+        }
+        
+        switch(c){
+            case '1':
+            for(i = 0; i < TAM; i++){
+            printf("Nome:");
+            scanf("%s", cadAluno[i].nome);
+            printf("Sexo:");
+            scanf("%c", &cadAluno[i].sexo);
+            printf("Data Nascimento:");
+            scanf("%s", cadAluno[i].dataNascimento);
+            printf("Cpf:");
+            scanf("%s", cadAluno[i].cpf);
+            printf("Matricula:");
+            scanf("%s", cadAluno[i].matricula);
+            setbuf(stdin,NULL);
+            }
+            break;
+            case '2':
+            printf("Lista de alunos:\n");
+            for(i = 0; i < TAM; i++){
+            printf("%s\n", cadAluno[i].nome);
+            }
+            break;
+        }
+
+    } while(c != '0');
+         if(c == '0'){
+            printf("Sair");
+         }
+}
