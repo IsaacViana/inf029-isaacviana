@@ -1,0 +1,321 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define TAM 5
+
+struct registro{
+  char nome[50];
+  char sexo;
+  char dataNascimento[13];
+  char cpf[12];
+  char matricula[11];
+}professor, aluno, cadProfessor[TAM], cadAluno[TAM];
+
+struct cadastro{
+  char nome[50];
+  char codigo[11];
+  int semestre;
+  char professor[50];
+}disciplina, cadDisciplina[TAM];
+
+void menu(void);
+
+void menuProfessor(void);
+void insereProfessor(struct registro *cadProfessor);
+void listaProfessor(struct registro *cadProfessor);
+
+void menuAluno(void);
+void insereAluno(struct registro *cadAluno);
+void listaAluno(struct registro *cadAluno);
+
+void menuDisciplina(void);
+void insereDisciplina(struct cadastro *cadDisciplina);
+void listaDisciplina(struct cadastro *cadDisciplina);
+
+int validaSexoAluno(struct registro *cadAluno);
+int validaSexoProfessor(struct registro *cadProfessor);
+
+int main(){
+    
+    printf("ESCOLA\n");
+    
+    menu();
+
+    return 1;
+    
+}
+
+void menu(){
+    int a;
+    
+    printf("1 - SESSAO PROFESSOR:\n");
+    printf("2 - SESSAO ALUNO:\n");
+    printf("3 - SESSAO DISCIPLINA:\n");
+    printf("0 - ENCERRAR PROGRAMA\n");
+    
+    do{
+        printf("Digite a opcao desejada:\n");
+        scanf("%d", &a);
+        setbuf(stdin, NULL);
+        
+        switch(a){
+            case 0:
+                break;
+            case 1:
+                menuProfessor();
+                break;
+            case 2: 
+                menuAluno();
+                break;
+            case 3: 
+                menuDisciplina();
+                break;    
+            default:
+                printf("Valor invalido.\n");
+                break;
+            }
+    }while(a != 0);
+        if(a == 0){
+        printf("Sair.");
+        }
+}
+
+void menuProfessor(void){  
+        int a;
+                
+
+	do{
+
+        printf("Digite a opcao desejada:\n\n");
+        printf("1 - Insere professores\n");
+        printf("2 - Lista professores\n");
+        printf("0 - Retorna ao menu anterior\n");
+        printf("3 - Encerra o programa\n");
+        scanf("%d", &a);
+        setbuf(stdin, NULL);
+        
+        switch(a){
+            case 0:
+                break;
+            case 1:
+                printf("INSERIR PROFESSOR\n");
+                insereProfessor(cadProfessor);
+                break;
+            case 2: 
+                printf("LISTAR PROFESSOR\n");
+                listaProfessor(cadProfessor);
+                break;
+            case 3: 
+                exit(1);
+                break;
+            default:
+                printf("Valor invalido!\n");
+                printf("Tente novamente\n");
+                break;
+        }
+  	}while(a != 0);
+        if(a == 0){
+            printf("Voce retornou ao menu anterior.\n");
+        }
+}
+
+void menuAluno(void){  
+        int a;
+
+	do{
+
+		printf("Digite a opcao desejada:\n\n");
+		printf("1 - Insere alunos\n");
+        printf("2 - Lista alunos\n");
+        printf("0 - Retorna ao menu anterior\n");
+        printf("3 - Encerra o programa\n");        
+       
+        scanf("%d", &a);
+        setbuf(stdin, NULL);
+               
+        switch(a){
+            case 0:
+                break;
+            case 1:
+                insereAluno(cadAluno);
+                break;
+            case 2: 
+                listaAluno(cadAluno);
+                break;
+            case 3: 
+                exit(1);
+                break;
+            default:
+                printf("Valor invalido!\n");
+                printf("Tente novamente\n");
+                break;
+        }
+    
+    }while(a != 0);
+        if(a == 0){
+            printf("Voce retornou ao menu anterior.\n");
+        }
+}
+
+void menuDisciplina(void){  
+        int a;
+                
+
+    do{
+        printf("Digite a opcao desejada:\n\n");
+        printf("1 - Insere disciplinas\n");
+        printf("2 - Lista disciplinas\n");
+        printf("0 - Retorna ao menu anterior\n");
+        printf("3 - Encerra o programa\n");
+        scanf("%d", &a);
+        setbuf(stdin, NULL);
+        
+        switch(a){
+            case 0:
+                break;
+            case 1:
+                printf("INSERIR DISCIPLINAS\n");
+                insereDisciplina(cadDisciplina);
+                break;
+            case 2: 
+                printf("LISTAR DISCIPLINAS\n");
+                listaDisciplina(cadDisciplina);
+                break;
+            case 3: 
+                exit(1);
+                break;
+            default:
+                printf("Valor invalido!\n");
+                printf("Tente novamente\n");
+                break;
+        }
+    }while(a != 0);
+        if(a == 0){
+            printf("Voce retornou ao menu anterior.\n");
+        }
+}
+
+void insereProfessor(struct registro *cadProfessor){
+    int i, num;
+    
+    for(i = 0; i < TAM; i++){
+      printf("Nome do professor:");
+      scanf("%s", cadProfessor[i].nome);
+      printf("Sexo:");
+                num = validaSexoProfessor(cadProfessor);
+                if(num == 0){
+                    printf("Cadastro invalido. Dado de sexo invalido\n");
+                    printf("Tente novamente.\n\n");
+                    return;
+                }
+      printf("Data de Nascimento:");
+      scanf("%s", cadProfessor[i].dataNascimento);
+      printf("Cpf:");
+      scanf("%s", cadProfessor[i].cpf);
+      printf("Matricula:");
+      scanf("%s", cadProfessor[i].matricula);
+    }
+}
+
+void listaProfessor(struct registro *cadProfessor){
+    int i;
+    
+    for(i = 0; i < TAM; i++){
+      printf("Nome do professor111: %s\n", cadProfessor[i].nome);
+      printf("Sexo222: %c\n", cadProfessor[i].sexo);
+      printf("Data de Nascimento333: %s\n", cadProfessor[i].dataNascimento);
+      printf("Cpf444: %s\n", cadProfessor[i].cpf);
+      printf("Matricula555: %s\n", cadProfessor[i].matricula);
+    }
+}
+
+void insereAluno(struct registro *cadAluno){
+    int i, num;
+    
+    for(i = 0; i < TAM; i++){
+      printf("Nome do aluno:");
+      scanf("%s", cadAluno[i].nome);
+      printf("Sexo:");
+                num = validaSexoAluno(cadAluno);
+                if(num == 0){
+                    printf("Cadastro invalido. Dado de sexo invalido\n");
+                    printf("Tente novamente.\n\n");
+                    return;
+                }
+      scanf("%c", &cadAluno[i].sexo);
+      printf("Data de Nascimento:");
+      scanf("%s", cadAluno[i].dataNascimento);
+      printf("Cpf:");
+      scanf("%s", cadAluno[i].cpf);
+      printf("Matricula:");
+      scanf("%s", cadAluno[i].matricula);
+    }
+}
+
+void listaAluno(struct registro *cadAluno){
+    int i;
+    
+    for(i = 0; i < TAM; i++){
+      printf("Nome do aluno111: %s\n", cadAluno[i].nome);
+      printf("Sexo222: %c\n", cadAluno[i].sexo);
+      printf("Data de Nascimento333: %s\n", cadAluno[i].dataNascimento);
+      printf("Cpf444: %s\n", cadAluno[i].cpf);
+      printf("Matricula555: %s\n", cadAluno[i].matricula);
+    }
+}
+
+void insereDisciplina(struct cadastro *cadDisciplina){
+    int i;
+    
+    for(i = 0;i < TAM; i++){        
+      printf("Nome da disciplina:\n");
+      scanf("%s", cadDisciplina[i].nome);
+      printf("Codigo da disciplina:\n");
+      scanf("%s", cadDisciplina[i].codigo);
+      printf("Semestre da disciplina:\n");
+      scanf("%d", &cadDisciplina[i].semestre);
+      printf("Professor da disciplina:\n");
+      scanf("%s", cadDisciplina[i].professor);
+    }
+}
+
+void listaDisciplina(struct cadastro *cadDisciplina){
+    int i;
+    
+    for(i = 0; i< TAM; i++){        
+      printf("Nome disciplina: %s\n", cadDisciplina[i].nome);
+      printf("Codigo disciplina: %s\n", cadDisciplina[i].codigo);
+      printf("Semestre disciplina ministrada: %d", cadDisciplina[i].semestre);
+      printf("Professor que ministra: %s", cadDisciplina[i].professor);
+    }
+}
+
+int validaSexoAluno(struct registro *cadAluno){
+    int i, num;
+        
+    for(i = 0; i < TAM; i++){
+        scanf("%c", &cadAluno[i].sexo);
+        if(cadAluno[i].sexo == 'M' || cadAluno[i].sexo == 'm' || cadAluno[i].sexo == 'F' || cadAluno[i].sexo == 'f' || cadAluno[i].sexo == 'O' || cadAluno[i].sexo == 'o')
+        {
+    		num = 1; 
+        }else{
+            num = 0; 
+        }
+    }      
+        return num;
+}
+
+int validaSexoProfessor(struct registro *cadProfessor){
+    int i, num;
+        
+    for(i = 0; i < TAM; i++){
+        scanf("%c", &cadAluno[i].sexo);
+        if(cadProfessor[i].sexo == 'M' || cadProfessor[i].sexo == 'm' || cadProfessor[i].sexo == 'F' || cadProfessor[i].sexo == 'f' || cadProfessor[i].sexo == 'O' || cadProfessor[i].sexo == 'o')
+        {
+    		num = 1; 
+        }else{
+            num = 0; 
+        }
+    }      
+        return num;
+}
