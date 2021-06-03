@@ -263,12 +263,11 @@ void insereProfessor(struct registro *cadProfessor){
             printf("Cadastro invalido. Dado de data de nascimento invalido\n");
             printf("Tente novamente.\n\n");
             return;
-        }    
-      printf("Data de nascimento: %d/%d/%d\n", cadProfessor[i].dataNascimento, cadProfessor[i].dataNascimento, cadProfessor[i].dataNascimento);
+        } 
       printf("Matricula:");
         mat = gerarMatriculaProfessor(cadProfessor);
       printf(" %d\n", cadProfessor[i].matricula);
-      
+      setbuf(stdin, NULL);       
     }
 }
 
@@ -408,8 +407,7 @@ void insereAluno(struct registro *cadAluno){
       printf("Matricula:");
         mat = gerarMatriculaAluno(cadAluno);
       printf(" %d\n", cadAluno[i].matricula);
-      setbuf(stdin, NULL);
-      
+      setbuf(stdin, NULL);      
     }
 }
 
@@ -448,6 +446,7 @@ void insereDisciplina(struct cadastro *cadDisciplina){
       scanf("%d", &cadDisciplina[i].semestre);
       printf("Professor da disciplina:\n");
       scanf("%s", cadDisciplina[i].professor);
+      setbuf(stdin, NULL); 
     }
 }
 
