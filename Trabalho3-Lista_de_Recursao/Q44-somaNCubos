@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int nCubos(int n);
+
+int main()
+{
+	int n;
+
+	printf("Digite um numero natural para obter a soma dos seus cubos:\n");
+	scanf("%d", &n);
+	printf("\n");
+
+	printf("A soma dos cubos eh: %d\n", nCubos(n));
+
+	return 0;
+}
+
+int nCubos(int n)
+{
+	if(n == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return (n * n * n) + nCubos(n - 1);
+	}
+}
