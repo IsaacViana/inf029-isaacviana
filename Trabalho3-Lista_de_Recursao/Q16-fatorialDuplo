@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int fatorialDuplo(int n);
+
+int main()
+{
+	int n;
+
+	printf("Digite um numero natural impar para obter seu fatorial duplo:\n");
+	scanf("%d", &n);
+	printf("\n");
+
+	printf("%d", fatorialDuplo(n));
+
+	return 0;
+}
+
+int fatorialDuplo(int n)
+{
+	if(n == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n * fatorialDuplo(n - 2);
+	}
+}
