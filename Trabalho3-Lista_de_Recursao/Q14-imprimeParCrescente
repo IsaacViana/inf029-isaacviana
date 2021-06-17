@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int imprimeParCrescente(int n);
+
+int main()
+{
+	int n;
+
+	printf("Digite um numero inteiro positivo par:\n");
+	scanf("%d", &n);
+	printf("\n");
+
+	imprimeParCrescente(n);
+
+	return 0;
+}
+
+int imprimeParCrescente(int n)
+{
+	if(n < 0)
+	{
+		return 0;
+	}
+	if(n % 2 == 0)
+	{
+		imprimeParCrescente(n - 2);	
+		printf("%d\n", n);	
+	}
+	else
+	{
+		printf("Nao permitido.");
+	}
+
+	return 0;  
+}
