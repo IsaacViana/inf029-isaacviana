@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int calculaPotencia(int k, int n);
+
+int main()
+{
+	int k, n;
+
+	printf("Digite k para base e n para o expoente:\n");
+	scanf("%d%d", &k, &n);
+
+	printf("O valor de %d^%d eh: %d", k, n, calculaPotencia(k, n));
+
+	return 0;
+}
+
+int calculaPotencia(int k, int n)
+{
+	if(n == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return k * calculaPotencia(k, n - 1);
+	}
+}
