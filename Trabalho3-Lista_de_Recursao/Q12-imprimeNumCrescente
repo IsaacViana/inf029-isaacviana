@@ -4,10 +4,10 @@ int imprimeNumCrescente(int n);
 
 int main()
 {
-	  int n;
+	int n;
 
-	  printf("Digite numero:\n");
-	  scanf("%d", &n);
+	printf("Digite numero:\n");
+	scanf("%d", &n);
   	printf("\n");
 	
   	imprimeNumCrescente(n);
@@ -17,15 +17,15 @@ int main()
 
 int imprimeNumCrescente(int n)
 {  
-	  if(n < 0)
-	  {
-		  return 0;
-	  }
-	  else
-	  {
-    	imprimeNumCrescente(n - 1);		       
-	  } 
+	if(n < 0)
+	{
+		return 0;
+	}
+	else
+	{
+    	imprimeNumCrescente(n - 1);		    
+	} 
   		printf("%d\n", n);
   
-      return 0; 
+  return 0; 
 }
