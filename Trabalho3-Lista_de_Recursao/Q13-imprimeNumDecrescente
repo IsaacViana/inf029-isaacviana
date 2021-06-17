@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int imprimeNumDecrescente(int n);
+
+int main()
+{
+	int n;
+
+	printf("Digite numero:\n");
+	scanf("%d", &n);
+	printf("\n");
+		
+	imprimeNumDecrescente(n);
+
+	return 0;
+}
+
+int imprimeNumDecrescente(int n)
+{
+	printf("%d\n", n);
+
+	if(n == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return imprimeNumDecrescente(n - 1);    
+	}  
+}
