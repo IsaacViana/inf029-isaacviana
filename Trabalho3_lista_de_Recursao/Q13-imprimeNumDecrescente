@@ -25,6 +25,6 @@ int imprimeNumDecrescente(int n)
 	}
 	else
 	{
-		return imprimeNumDecrescente(n - 1);    
+		return imprimeNumDecrescente(n - 1);   
 	}  
 }
