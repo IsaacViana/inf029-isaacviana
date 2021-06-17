@@ -25,7 +25,7 @@ int imprimeNumCrescente(int n)
 	{
     imprimeNumCrescente(n - 1);		    
 	} 
-  printf("%d\n", n);
+  	printf("%d\n", n);
   
-  return 0; 
+  	return 0; 
 }
