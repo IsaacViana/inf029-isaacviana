@@ -23,7 +23,7 @@ int imprimeNumCrescente(int n)
 	}
 	else
 	{
-    	imprimeNumCrescente(n - 1);		    
+		imprimeNumCrescente(n - 1);		    
 	} 
   		printf("%d\n", n);
   
