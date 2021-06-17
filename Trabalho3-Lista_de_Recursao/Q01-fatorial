@@ -13,7 +13,7 @@ int main()
 
 	return 0;
 }
-
+   
 int fatorial(int n)
 {
 	if(n == 0 || n == 1)
